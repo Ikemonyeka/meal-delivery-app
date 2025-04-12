@@ -7,6 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import store from '../src/store/store';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router } from 'react-router-dom';
+import { SnackbarProvider } from 'notistack';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -15,7 +16,9 @@ root.render(
   <React.StrictMode>
     <Router>
       <Provider store={store}>
-        <App />
+        <SnackbarProvider>
+          <App />
+        </SnackbarProvider>
       </Provider>
     </Router>
   </React.StrictMode>

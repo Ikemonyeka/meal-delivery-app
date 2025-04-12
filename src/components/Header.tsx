@@ -1,14 +1,15 @@
 import React, { useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-
 import { Container } from "reactstrap";
 import logo from "../assets/images/res-logo.png";
 import { NavLink, Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-
 import { cartUiActions } from "../store/shopping-cart/cartUiSlice";
 import type { RootState } from "../store/store"; // adjust the path if needed
 import "../styles/header.css";
+import { Button } from "@mui/material";
+import { logoutUser } from "../services/authService";
+import { useSnackbar } from "notistack";
 
 const nav__links = [
     {
@@ -60,6 +61,14 @@ const nav__links = [
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
+
+    const { enqueueSnackbar } = useSnackbar();
+    const handleLogout = () => {
+        logoutUser();
+        enqueueSnackbar("Logged out successfully", { variant: "info" });
+        navigate("/login");
+    };
+
     return (
         <header className="header" ref={headerRef}>
         <Container>
@@ -108,6 +117,9 @@ const nav__links = [
                 <span className="mobile__menu" onClick={toggleMenu}>
                 <i className="ri-menu-line"></i>
                 </span>
+                <Button variant="outlined" color="error" onClick={handleLogout}>
+                    Logout
+                </Button>
             </div>
             </div>
         </Container>

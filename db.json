@@ -1,0 +1,13 @@
+{
+  "users": [
+    {
+      "id": "be8e",
+      "firstName": "Ikemefuna",
+      "lastName": "Onyeka",
+      "email": "ikemonyeka@gmail.com",
+      "password": "123456789",
+      "phone": "123456789",
+      "address": "3100 S Michigan Ave"
+    }
+  ]
+}

@@ -7,18 +7,21 @@ import CartDrawer from "../components/CartDrawer";
 
 import { useSelector } from "react-redux";
 import { RootState } from "../store/store";
+import { useLocation } from "react-router-dom";
 
 const Layout = () => {
   const showCart = useSelector((state: RootState) => state.cartUi.cartIsVisible);
-
+  const location = useLocation();
+  const hideHeaderFooter = location.pathname === "/login" || location.pathname === "/signup";
+  
   return (
     <div className="d-flex flex-column vh-100 justify-content-between">
-      <Header />
-      <CartDrawer />
+      {!hideHeaderFooter && <Header />}
+      {!hideHeaderFooter && <CartDrawer />}
       <div>
         <Routes />
       </div>
-      <Footer />
+      {!hideHeaderFooter && <Footer />}
     </div>
   );
 };
