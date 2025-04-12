@@ -33,6 +33,7 @@ const nav__links = [
     const menuRef = useRef<HTMLDivElement | null>(null);
     const headerRef = useRef<HTMLDivElement | null>(null);
     const totalQuantity = useSelector((state: RootState) => state.cart.totalQuantity);
+    console.log(totalQuantity);
     const dispatch = useDispatch();
 
     const toggleMenu = () => menuRef.current?.classList.toggle("show__menu");
@@ -40,7 +41,7 @@ const nav__links = [
 
     const toggleCart = () => {
         dispatch(cartUiActions.toggle());
-    };
+    };    
 
     useEffect(() => {
         const handleScroll = () => {

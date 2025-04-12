@@ -13,11 +13,13 @@ import {
 } from "@mui/material";
 import Grid from "@mui/material/GridLegacy";
 import { restaurants } from "../data/restaurants";
+import { useDispatch } from "react-redux";
+import { cartActions } from "../store/shopping-cart/cartSlice";
 
 export default function RestaurantPage() {
   const { id } = useParams();
   const restaurant = restaurants.find((r) => r.id.toString() === id);
-
+  const dispatch = useDispatch();
   const [tabIndex, setTabIndex] = useState(0);
 
   if (!restaurant) return <div className="p-4">Restaurant not found</div>;
@@ -95,8 +97,21 @@ export default function RestaurantPage() {
                   <Typography variant="subtitle1" fontWeight="bold">
                     ${item.price.toFixed(2)}
                   </Typography>
-                  <Button variant="contained" size="small">
-                    Add to Cart
+                  <Button
+                      variant="contained"
+                      size="small"
+                      onClick={() =>
+                        dispatch(
+                          cartActions.addItem({
+                            id: item.id,
+                            title: item.name,
+                            image01: item.image,
+                            price: item.price
+                          })
+                        )
+                      }
+                    >
+                      Add to Cart
                   </Button>
                 </Box>
               </CardContent>

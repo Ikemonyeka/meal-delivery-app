@@ -3,6 +3,7 @@ import React from "react";
 import Header from "../components/Header";
 import Routes from "../routes/Router"
 import Footer from "../components/Footer";
+import CartDrawer from "../components/CartDrawer";
 
 import { useSelector } from "react-redux";
 import { RootState } from "../store/store";
@@ -13,6 +14,7 @@ const Layout = () => {
   return (
     <div className="d-flex flex-column vh-100 justify-content-between">
       <Header />
+      <CartDrawer />
       <div>
         <Routes />
       </div>
