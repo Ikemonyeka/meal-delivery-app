@@ -6,6 +6,8 @@ import Restaurants from "../pages/Restuarants";
 import RestaurantPage from "../pages/RestaurantPage";
 import SignupForm from "../components/SignupForm";
 import LoginForm from "../components/LoginForm";
+import Checkout from "../pages/Checkout";
+import ProtectedRoute from "../components/ProtectedRoute";
 
 const Routers = () => {
   return (
@@ -16,6 +18,12 @@ const Routers = () => {
       <Route path="/restaurant/:id" element={<RestaurantPage />} />
       <Route path="/signup" element={<SignupForm />} />
       <Route path="/login" element={<LoginForm />} />
+      <Route path="/checkout" element={ 
+        <ProtectedRoute>
+          <Checkout />
+        </ProtectedRoute>
+      }
+    />
     </Routes>
   );
 };

@@ -16,11 +16,13 @@ import { cartActions } from '../store/shopping-cart/cartSlice';
 import { RootState } from '../store/store';
 import { cartUiActions } from '../store/shopping-cart/cartUiSlice';
 import CloseIcon from '@mui/icons-material/Close';
+import { useNavigate } from 'react-router-dom';
 
 export default function CartDrawer() {
     const cart = useSelector((state: RootState) => state.cart);
     const cartIsVisible = useSelector((state: RootState) => state.cartUi.cartIsVisible);
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const handleRemove = (id: string | number) => dispatch(cartActions.deleteItem(id));
     const handleIncrease = (item: CartItem) => dispatch(cartActions.addItem(item));
@@ -89,8 +91,9 @@ export default function CartDrawer() {
                 color="primary"
                 fullWidth
                 sx={{ mt: 2 }}
-                onClick={handleClose}
-            >
+                onClick={() => {handleClose(); navigate("/checkout");}}
+                disabled={cart.cartItems.length === 0}
+                >
                 Checkout
             </Button>
             </Box>
