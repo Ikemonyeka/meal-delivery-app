@@ -106,7 +106,9 @@ export default function RestaurantPage() {
                             id: item.id,
                             title: item.name,
                             image01: item.image,
-                            price: item.price
+                            price: item.price,
+                            restaurantName: restaurant.name,
+                            restaurantAddress: restaurant.address || "Address currently available"
                           })
                         )
                       }
