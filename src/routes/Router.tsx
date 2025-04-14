@@ -8,6 +8,7 @@ import SignupForm from "../components/SignupForm";
 import LoginForm from "../components/LoginForm";
 import Checkout from "../pages/Checkout";
 import ProtectedRoute from "../components/ProtectedRoute";
+import Track from "../pages/Track";
 
 const Routers = () => {
   return (
@@ -23,7 +24,8 @@ const Routers = () => {
           <Checkout />
         </ProtectedRoute>
       }
-    />
+      />
+      <Route path="/track" element={<Track />} />
     </Routes>
   );
 };
