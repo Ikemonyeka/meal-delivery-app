@@ -9,5 +9,36 @@
       "phone": "123456789",
       "address": "3100 S Michigan Ave"
     }
+  ],
+  "orders": [
+    {
+      "id": "f0e4",
+      "date_id": 1744568790936,
+      "items": [
+        {
+          "id": "m1",
+          "title": "Turkey Sub",
+          "image01": "https://i.imgur.com/p04VcTy.jpeg",
+          "price": 8.49,
+          "quantity": 1,
+          "totalPrice": 8.49
+        },
+        {
+          "id": "m3",
+          "title": "Italian B.M.T.",
+          "image01": "https://i.imgur.com/p04VcTy.jpeg",
+          "price": 8.99,
+          "quantity": 1,
+          "totalPrice": 8.99
+        }
+      ],
+      "customerAddress": "3100 S Michigan Ave",
+      "restaurantAddress": "30 S Michigan Ave, Chicago, IL 60603",
+      "restaurantName": "Subway",
+      "total": "21.20",
+      "deliveryStatus": "pending",
+      "driverLocation": null,
+      "createdAt": "2025-04-13T18:26:30.936Z"
+    }
   ]
 }

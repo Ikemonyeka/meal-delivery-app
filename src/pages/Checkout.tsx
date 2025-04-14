@@ -42,10 +42,32 @@ import { useNavigate } from "react-router-dom";
         setOpenPayment(true); // trigger modal
     };
 
-    const handlePaymentSuccess = () => {
-        dispatch(cartActions.clearCart());
-        setTimeout(() => navigate("/track"), 5000); // after countdown
-    };
+    const handlePaymentSuccess = async () => {
+        const order = {
+            date_id: Date.now(), // unique orderID
+            items: cartItems,
+            customerAddress: newAddress,
+            restaurantAddress: restaurantAddress,
+            restaurantName: restaurantName,
+            total: Total.toFixed(2),
+            deliveryStatus: "pending",
+            driverLocation: null, // Will be updated when driver accepts
+            createdAt: new Date().toISOString()
+        };
+    
+        try {
+            await fetch("http://localhost:5000/orders", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(order)
+            });
+    
+            dispatch(cartActions.clearCart());
+            setTimeout(() => navigate("/track"), 5000);
+        } catch (err) {
+            console.error("Failed to save order:", err);
+        }
+    };    
 
     const handleSaveAddress = () => {
         const updatedUser = { ...user, address: newAddress };
