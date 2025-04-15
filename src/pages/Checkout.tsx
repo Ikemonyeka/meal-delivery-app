@@ -36,7 +36,7 @@ import { useNavigate } from "react-router-dom";
     const [openPayment, setOpenPayment] = useState(false);
     const navigate = useNavigate();
     
-    const Total = totalAmount + ((totalAmount/100) * 6) + ((totalAmount/100) * 15.3)
+    const Total = totalAmount + ((totalAmount/100) * 12) + ((totalAmount/100) * 15.3)
 
     const handlePlaceOrder = () => {
         setOpenPayment(true); // trigger modal
@@ -51,24 +51,25 @@ import { useNavigate } from "react-router-dom";
             restaurantName: restaurantName,
             total: Total.toFixed(2),
             deliveryStatus: "pending",
-            driverLocation: null, // Will be updated when driver accepts
+            driverLocation: "41.873831, -87.695692", // Will be updated when driver accepts
             createdAt: new Date().toISOString()
         };
     
         try {
-            await fetch("http://localhost:5000/orders", {
+            const response = await fetch("http://localhost:5000/orders", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(order)
             });
-    
+            const orderData = await response.json();
+            localStorage.setItem("orderID", orderData.date_id); // Store the orderID for tracking
             dispatch(cartActions.clearCart());
-            setTimeout(() => navigate("/track"), 5000);
+            setTimeout(() => navigate("/track"), 5000); // Navigate to tracking page
         } catch (err) {
             console.error("Failed to save order:", err);
         }
-    };    
-
+    };
+    
     const handleSaveAddress = () => {
         const updatedUser = { ...user, address: newAddress };
         setUser(updatedUser);
@@ -223,7 +224,7 @@ import { useNavigate } from "react-router-dom";
                 </Box>
                 <Box display="flex" justifyContent="space-between">
                 <Typography>Delivery Fee</Typography>
-                <Typography>${((totalAmount/100) * 6).toFixed(2)}</Typography>
+                <Typography>${((totalAmount/100) * 12).toFixed(2)}</Typography>
                 </Box>
                 <Box display="flex" justifyContent="space-between">
                 <Typography>Taxes & Fees</Typography>
