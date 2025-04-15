@@ -3,6 +3,7 @@ export const restaurants = [
         id: 1,
         name: "Gyros 47",
         image: "https://i.imgur.com/vCGlaRF.jpeg",
+        address: "47 W Jackson Blvd, Chicago, IL 60604",
         deliveryFee: 1.99,
         rating: 4.2,
         reviews: "1,000+",
@@ -16,11 +17,12 @@ export const restaurants = [
             { id: "m5", name: "Baklava", price: 4.49, description: "Sweet pastry with nuts and honey.", category: "Desserts" },
             { id: "m6", name: "Iced Frappe", price: 3.99, description: "Greek-style iced coffee.", category: "Drinks" }
         ].map(item => ({ ...item, image: "https://i.imgur.com/vCGlaRF.jpeg" }))
-        },
-        {
+    },
+    {
         id: 2,
         name: "Hawaiian Bros",
         image: "https://i.imgur.com/hNZyM4y.jpeg",
+        address: "24 E Jackson Blvd, Chicago, IL 60604",
         deliveryFee: 1.99,
         rating: 4.6,
         reviews: "10,000+",
@@ -34,11 +36,12 @@ export const restaurants = [
             { id: "m5", name: "Loco Moco", price: 9.99, description: "Burger patty, rice, egg, and gravy.", category: "Main Dishes" },
             { id: "m6", name: "Pineapple Juice", price: 2.99, description: "Fresh chilled pineapple juice.", category: "Drinks" }
         ].map(item => ({ ...item, image: "https://i.imgur.com/hNZyM4y.jpeg" }))
-        },
-        {
+    },
+    {
         id: 3,
         name: "Crumbl",
         image: "https://i.imgur.com/5yR7Kdp.jpeg",
+        address: "22 S Wabash Ave, Chicago, IL 60603",
         deliveryFee: 3.99,
         rating: 4.4,
         reviews: "1,500+",
@@ -52,11 +55,12 @@ export const restaurants = [
             { id: "m5", name: "Oreo Crumble", price: 4.29, description: "Cookie with crushed Oreos on top.", category: "Desserts" },
             { id: "m6", name: "Milk", price: 2.49, description: "Cold glass of milk for dipping cookies.", category: "Drinks" }
         ].map(item => ({ ...item, image: "https://i.imgur.com/5yR7Kdp.jpeg" }))
-        },
-        {
+    },
+    {
         id: 4,
         name: "Subway",
         image: "https://i.imgur.com/p04VcTy.jpeg",
+        address: "30 S Michigan Ave, Chicago, IL 60603",
         deliveryFee: 2.49,
         rating: 4.3,
         reviews: "700+",
@@ -70,11 +74,12 @@ export const restaurants = [
             { id: "m5", name: "Tuna Sub", price: 8.29, description: "Creamy tuna salad sandwich.", category: "Main Dishes" },
             { id: "m6", name: "Fountain Drink", price: 2.49, description: "Coca-Cola, Sprite or your choice of soda.", category: "Drinks" }
         ].map(item => ({ ...item, image: "https://i.imgur.com/p04VcTy.jpeg" }))
-        },
-        {
+    },
+    {
         id: 5,
         name: "Panda Express",
         image: "https://i.imgur.com/KCKkgSk.jpeg",
+        address: "110 S Franklin St, Chicago, IL 60606",
         deliveryFee: 2.99,
         rating: 4.1,
         reviews: "3,200+",
@@ -88,11 +93,12 @@ export const restaurants = [
             { id: "m5", name: "Spring Rolls", price: 3.99, description: "Crispy vegetarian rolls.", category: "Sides" },
             { id: "m6", name: "Green Tea", price: 2.99, description: "Hot or iced jasmine green tea.", category: "Drinks" }
         ].map(item => ({ ...item, image: "https://i.imgur.com/KCKkgSk.jpeg" }))
-        },
-        {
+    },
+    {
         id: 6,
         name: "Chipotle",
         image: "https://i.imgur.com/5LbQQXh.jpeg",
+        address: "21 E Adams St, Chicago, IL 60603",
         deliveryFee: 1.49,
         rating: 4.5,
         reviews: "5,000+",
@@ -106,11 +112,12 @@ export const restaurants = [
             { id: "m5", name: "Quesadilla", price: 8.99, description: "Melted cheese and your choice of meat.", category: "Main Dishes" },
             { id: "m6", name: "Agua Fresca", price: 3.49, description: "Freshly made fruit drink.", category: "Drinks" }
         ].map(item => ({ ...item, image: "https://i.imgur.com/5LbQQXh.jpeg" }))
-        },
-        {
+    },
+    {
         id: 7,
         name: "Five Guys",
         image: "https://i.imgur.com/OXLMqiW.jpeg",
+        address: "30 E Adams St, Chicago, IL 60603",
         deliveryFee: 3.49,
         rating: 4.7,
         reviews: "2,800+",
@@ -124,11 +131,12 @@ export const restaurants = [
             { id: "m5", name: "Milkshake", price: 4.99, description: "Hand-spun thick milkshake.", category: "Desserts" },
             { id: "m6", name: "Bottled Water", price: 1.99, description: "Chilled bottled water.", category: "Drinks" }
         ].map(item => ({ ...item, image: "https://i.imgur.com/OXLMqiW.jpeg" }))
-        },
-        {
+    },
+    {
         id: 8,
         name: "Shake Shack",
         image: "https://i.imgur.com/rMwOAK2.jpeg",
+        address: "12 S Michigan Ave, Chicago, IL 60603",
         deliveryFee: 3.49,
         rating: 4.6,
         reviews: "6,000+",
@@ -138,9 +146,7 @@ export const restaurants = [
             { id: "m1", name: "ShackBurger", price: 5.99, description: "Beef patty with cheese, lettuce, and tomato.", category: "Main Dishes" },
             { id: "m2", name: "Crinkle-Cut Fries", price: 3.99, description: "Golden, crispy fries.", category: "Sides" },
             { id: "m3", name: "Chicken Shack", price: 7.49, description: "Crispy chicken sandwich.", category: "Main Dishes" },
-            { id: "m4", name: "Cheese Fries", price: 4.49, description: "Fries smothered with cheese.", category: "Sides" },
-            { id: "m5", name: "Shack Shake", price: 5.99, description: "Rich and creamy milkshake.", category: "Desserts" },
-            { id: "m6", name: "Lemonade", price: 3.49, description: "Fresh squeezed lemonade.", category: "Drinks" }
+            { id: "m4", name: "Cheese Fries", price: 4.49, description: "Crispy fries with creamy cheese sauce.", category: "Sides" }
         ].map(item => ({ ...item, image: "https://i.imgur.com/rMwOAK2.jpeg" }))
-        }
-    ];  
+    }
+];

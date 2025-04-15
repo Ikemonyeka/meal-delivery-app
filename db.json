@@ -9,5 +9,131 @@
       "phone": "123456789",
       "address": "3100 S Michigan Ave"
     }
+  ],
+  "orders": [
+    {
+      "id": "f0e4",
+      "date_id": 1744568790936,
+      "items": [
+        {
+          "id": "m1",
+          "title": "Turkey Sub",
+          "image01": "https://i.imgur.com/p04VcTy.jpeg",
+          "price": 8.49,
+          "quantity": 1,
+          "totalPrice": 8.49
+        },
+        {
+          "id": "m3",
+          "title": "Italian B.M.T.",
+          "image01": "https://i.imgur.com/p04VcTy.jpeg",
+          "price": 8.99,
+          "quantity": 1,
+          "totalPrice": 8.99
+        }
+      ],
+      "customerAddress": "3100 S Michigan Ave",
+      "restaurantAddress": "30 S Michigan Ave, Chicago, IL 60603",
+      "restaurantName": "Subway",
+      "total": "21.20",
+      "deliveryStatus": "pending",
+      "driverLocation": null,
+      "createdAt": "2025-04-13T18:26:30.936Z"
+    },
+    {
+      "id": "6fde",
+      "date_id": 1744648541539,
+      "items": [
+        {
+          "id": "m1",
+          "title": "Orange Chicken",
+          "image01": "https://i.imgur.com/KCKkgSk.jpeg",
+          "price": 9.49,
+          "quantity": 1,
+          "totalPrice": 9.49
+        },
+        {
+          "id": "m3",
+          "title": "Beijing Beef",
+          "image01": "https://i.imgur.com/KCKkgSk.jpeg",
+          "price": 8.99,
+          "quantity": 1,
+          "totalPrice": 8.99
+        },
+        {
+          "id": "m6",
+          "title": "Green Tea",
+          "image01": "https://i.imgur.com/KCKkgSk.jpeg",
+          "price": 2.99,
+          "quantity": 1,
+          "totalPrice": 2.99
+        }
+      ],
+      "customerAddress": "3100 S Michigan Ave",
+      "restaurantAddress": "110 S Franklin St, Chicago, IL 60606",
+      "restaurantName": "Panda Express",
+      "total": "26.04",
+      "deliveryStatus": "pending",
+      "driverLocation": null,
+      "createdAt": "2025-04-14T16:35:41.539Z"
+    },
+    {
+      "id": "402a",
+      "date_id": 1744651808820,
+      "items": [
+        {
+          "id": "m1",
+          "title": "Burrito Bowl",
+          "image01": "https://i.imgur.com/5LbQQXh.jpeg",
+          "price": 10.49,
+          "quantity": 1,
+          "totalPrice": 10.49
+        },
+        {
+          "id": "m4",
+          "title": "Steak Tacos",
+          "image01": "https://i.imgur.com/5LbQQXh.jpeg",
+          "price": 10.99,
+          "quantity": 1,
+          "totalPrice": 10.99
+        }
+      ],
+      "customerAddress": "3100 S Michigan Ave",
+      "restaurantAddress": "21 E Adams St, Chicago, IL 60603",
+      "restaurantName": "Chipotle",
+      "total": "26.06",
+      "deliveryStatus": "pending",
+      "driverLocation": "41.873831, -87.695692",
+      "createdAt": "2025-04-14T17:30:08.820Z"
+    },
+    {
+      "id": "c01e",
+      "date_id": 1744662998615,
+      "items": [
+        {
+          "id": "m1",
+          "title": "ShackBurger",
+          "image01": "https://i.imgur.com/rMwOAK2.jpeg",
+          "price": 5.99,
+          "quantity": 1,
+          "totalPrice": 5.99
+        },
+        {
+          "id": "m3",
+          "title": "Chicken Shack",
+          "image01": "https://i.imgur.com/rMwOAK2.jpeg",
+          "price": 7.49,
+          "quantity": 1,
+          "totalPrice": 7.49
+        }
+      ],
+      "customerAddress": "Trump Towers, Chicago",
+      "restaurantAddress": "12 S Michigan Ave, Chicago, IL 60603",
+      "restaurantName": "Shake Shack",
+      "total": "17.16",
+      "deliveryStatus": "pending",
+      "driverLocation": "41.873831, -87.695692",
+      "createdAt": "2025-04-14T20:36:38.615Z"
+    }
   ]
 }
