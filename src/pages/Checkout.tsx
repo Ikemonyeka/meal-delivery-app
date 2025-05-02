@@ -39,7 +39,6 @@ export default function Checkout() {
     const Total = totalAmount + ((totalAmount/100) * 12) + ((totalAmount/100) * 15.3);
     const tax = (totalAmount/100) * 15.3;
     const deliveryFee = (totalAmount/100) * 12;
-
     const handlePlaceOrder = () => {
         setOpenPayment(true); // trigger modal
     };

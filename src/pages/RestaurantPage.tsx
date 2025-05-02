@@ -34,6 +34,7 @@ interface Restaurant {
   eta: string;
   address?: string;
   menu: MenuItem[];
+  res_id: string;
 }
 
 export default function RestaurantPage() {
@@ -42,7 +43,7 @@ export default function RestaurantPage() {
   const [restaurant, setRestaurant] = useState<Restaurant | null>(null);
   const [loading, setLoading] = useState(true);
   const [tabIndex, setTabIndex] = useState(0);
-
+  const [restaurantEmail, setRestaurantEmail] = useState("");
   useEffect(() => {
     // Convert id to a number and fetch data from the server (from db.json)
     const restaurantId = Number(id);
@@ -52,6 +53,17 @@ export default function RestaurantPage() {
     .then((data: Restaurant[]) => {
       if (data.length > 0) {
         setRestaurant(data[0]); // Assuming the query returns an array of results
+        
+        console.log()
+        if(data[0].res_id.length > 0){
+          fetch(`http://localhost:8000/users?id=${data[0].res_id}`)
+            .then((res) => res.json())
+            .then((data) => {
+              if (data.length > 0) {
+                setRestaurantEmail(data[0].email);
+              }
+            });
+        }
         setLoading(false);
       } else {
         setRestaurant(null);
@@ -151,7 +163,8 @@ export default function RestaurantPage() {
                           image01: item.image,
                           price: item.price,
                           restaurantName: restaurant.name,
-                          restaurantAddress: restaurant.address || "Address currently available"
+                          restaurantAddress: restaurant.address || "Address currently available",
+                          restaurantEmail: restaurantEmail
                         })
                       )
                     }
