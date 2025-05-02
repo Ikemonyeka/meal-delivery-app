@@ -36,7 +36,9 @@ export default function Checkout() {
     const [openPayment, setOpenPayment] = useState(false);
     const navigate = useNavigate();
     
-    const Total = totalAmount + ((totalAmount/100) * 12) + ((totalAmount/100) * 15.3)
+    const Total = totalAmount + ((totalAmount/100) * 12) + ((totalAmount/100) * 15.3);
+    const tax = (totalAmount/100) * 15.3;
+    const deliveryFee = (totalAmount/100) * 12;
 
     const handlePlaceOrder = () => {
         setOpenPayment(true); // trigger modal
@@ -53,7 +55,9 @@ export default function Checkout() {
             total: Total.toFixed(2),
             deliveryStatus: "pending",
             driverLocation: "2798 W Harrison St, Chicago, IL 60612", // Will be updated when driver accepts
-            createdAt: new Date().toISOString()
+            createdAt: new Date().toISOString(),
+            tax: tax.toFixed(2),
+            deliveryFee: deliveryFee.toFixed(2)
         };
     
         try {

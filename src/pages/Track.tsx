@@ -242,7 +242,13 @@ const Track = () => {
                             <Typography variant="body2">No items in this order.</Typography>
                         )}
                     </Box>
-                    <Typography variant="body1">
+                    <Typography variant="body2" sx={{mb: 0.5}}>
+                        <strong>Delivery Fee:</strong> ${order.deliveryFee}
+                    </Typography>
+                    <Typography variant="body2" sx={{mb: 0.5}}>
+                        <strong>Tax:</strong> ${order.tax}
+                    </Typography>
+                    <Typography variant="body2" sx={{mb: 0.5}}>
                         <strong>Total:</strong> ${order.total}
                     </Typography>
                 </Box>
