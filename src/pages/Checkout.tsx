@@ -19,7 +19,7 @@ import { useState } from "react";
 import PaymentModal from "../components/PaymentModal";
 import { useNavigate } from "react-router-dom";
 
-    export default function Checkout() {
+export default function Checkout() {
     const cartItems = useSelector((state: RootState) => state.cart.cartItems);
     const totalAmount = useSelector((state: RootState) => state.cart.totalAmount);
     const restaurantName = JSON.parse(localStorage.getItem("cartRestaurant")!);
@@ -45,18 +45,19 @@ import { useNavigate } from "react-router-dom";
     const handlePaymentSuccess = async () => {
         const order = {
             date_id: Date.now(), // unique orderID
+            userID: initialUser.id,
             items: cartItems,
             customerAddress: newAddress,
             restaurantAddress: restaurantAddress,
             restaurantName: restaurantName,
             total: Total.toFixed(2),
             deliveryStatus: "pending",
-            driverLocation: "41.873831, -87.695692", // Will be updated when driver accepts
+            driverLocation: "2798 W Harrison St, Chicago, IL 60612", // Will be updated when driver accepts
             createdAt: new Date().toISOString()
         };
     
         try {
-            const response = await fetch("http://localhost:5000/orders", {
+            const response = await fetch("http://localhost:8000/orders", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(order)
@@ -64,7 +65,7 @@ import { useNavigate } from "react-router-dom";
             const orderData = await response.json();
             localStorage.setItem("orderID", orderData.date_id); // Store the orderID for tracking
             dispatch(cartActions.clearCart());
-            setTimeout(() => navigate("/track"), 5000); // Navigate to tracking page
+            setTimeout(() => navigate(`/track/${order.date_id}`), 5000); // Navigate to tracking page
         } catch (err) {
             console.error("Failed to save order:", err);
         }
@@ -205,12 +206,12 @@ import { useNavigate } from "react-router-dom";
 
             <Divider />
 
-            <Box my={2}>
+            {/* <Box my={2}>
                 <Typography variant="subtitle1" fontWeight="bold">
                 Promotion
                 </Typography>
                 <Button size="small">Add promo code</Button>
-            </Box>
+            </Box> */}
 
             <Divider />
 
@@ -224,7 +225,7 @@ import { useNavigate } from "react-router-dom";
                 </Box>
                 <Box display="flex" justifyContent="space-between">
                 <Typography>Delivery Fee</Typography>
-                <Typography>${((totalAmount/100) * 12).toFixed(2)}</Typography>
+                <Typography>${((totalAmount/100) * 8).toFixed(2)}</Typography>
                 </Box>
                 <Box display="flex" justifyContent="space-between">
                 <Typography>Taxes & Fees</Typography>
@@ -240,4 +241,4 @@ import { useNavigate } from "react-router-dom";
         </Box>
         </Box>
     );
-}  
+}

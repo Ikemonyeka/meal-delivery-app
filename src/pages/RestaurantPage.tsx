@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Container,
   Typography,
@@ -9,31 +9,67 @@ import {
   Card,
   CardContent,
   CardMedia,
-  Button
+  Button,
+  CircularProgress
 } from "@mui/material";
 import Grid from "@mui/material/GridLegacy";
-import { restaurants } from "../data/restaurants";
 import { useDispatch } from "react-redux";
 import { cartActions } from "../store/shopping-cart/cartSlice";
 
+interface MenuItem {
+  id: string;
+  name: string;
+  description: string;
+  price: number;
+  image: string;
+  category?: string;
+}
+
+interface Restaurant {
+  id: number;
+  name: string;
+  image: string;
+  rating: number;
+  deliveryFee: number;
+  eta: string;
+  address?: string;
+  menu: MenuItem[];
+}
+
 export default function RestaurantPage() {
   const { id } = useParams();
-  const restaurant = restaurants.find((r) => r.id.toString() === id);
   const dispatch = useDispatch();
+  const [restaurant, setRestaurant] = useState<Restaurant | null>(null);
+  const [loading, setLoading] = useState(true);
   const [tabIndex, setTabIndex] = useState(0);
 
+  useEffect(() => {
+    // Convert id to a number and fetch data from the server (from db.json)
+    const restaurantId = Number(id);
+
+    fetch(`http://localhost:8000/restaurants?id=${restaurantId}`)
+    .then((res) => res.json())
+    .then((data: Restaurant[]) => {
+      if (data.length > 0) {
+        setRestaurant(data[0]); // Assuming the query returns an array of results
+        setLoading(false);
+      } else {
+        setRestaurant(null);
+        setLoading(false);
+      }
+    })
+    .catch((err) => {
+      console.error("Error fetching restaurant:", err);
+      setRestaurant(null);
+      setLoading(false);
+    });
+  
+  }, [id]);
+
+  if (loading) return <div className="p-4"><CircularProgress /></div>;
   if (!restaurant) return <div className="p-4">Restaurant not found</div>;
 
-  // Add Desserts to the category list
-  const categories: ("Main Dishes" | "Sides" | "Drinks" | "Desserts")[] = [
-    "Main Dishes",
-    "Sides",
-    "Drinks",
-    "Desserts"
-  ];
-
-  // Group menu items by category
-  const categorizedMenu = {
+  const rawCategories = {
     "Main Dishes": restaurant.menu.filter((item) =>
       item.category?.toLowerCase().includes("main")
     ),
@@ -47,6 +83,13 @@ export default function RestaurantPage() {
       item.category?.toLowerCase().includes("dessert")
     )
   };
+  
+  const categories = Object.keys(rawCategories).filter(
+    (key) => rawCategories[key as keyof typeof rawCategories].length > 0
+  );
+  
+  const categorizedMenu = rawCategories as Record<string, MenuItem[]>;
+  
 
   return (
     <Container maxWidth="lg" sx={{ py: 4 }}>
@@ -79,7 +122,7 @@ export default function RestaurantPage() {
       </Tabs>
 
       <Grid container spacing={3} mt={1}>
-        {categorizedMenu[categories[tabIndex]].map((item) => (
+        {categories.length > 0 && categorizedMenu[categories[tabIndex]].map((item) => (
           <Grid item xs={12} sm={6} md={4} key={item.id}>
             <Card sx={{ height: "100%", display: "flex", flexDirection: "column" }}>
               <CardMedia
@@ -98,22 +141,22 @@ export default function RestaurantPage() {
                     ${item.price.toFixed(2)}
                   </Typography>
                   <Button
-                      variant="contained"
-                      size="small"
-                      onClick={() =>
-                        dispatch(
-                          cartActions.addItem({
-                            id: item.id,
-                            title: item.name,
-                            image01: item.image,
-                            price: item.price,
-                            restaurantName: restaurant.name,
-                            restaurantAddress: restaurant.address || "Address currently available"
-                          })
-                        )
-                      }
-                    >
-                      Add to Cart
+                    variant="contained"
+                    size="small"
+                    onClick={() =>
+                      dispatch(
+                        cartActions.addItem({
+                          id: item.id,
+                          title: item.name,
+                          image01: item.image,
+                          price: item.price,
+                          restaurantName: restaurant.name,
+                          restaurantAddress: restaurant.address || "Address currently available"
+                        })
+                      )
+                    }
+                  >
+                    Add to Cart
                   </Button>
                 </Box>
               </CardContent>

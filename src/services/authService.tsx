@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:5000/users";
+const BASE_URL = "http://localhost:8000/users";
 
 export const registerUser = async (userData: any) => {
     const res = await fetch(BASE_URL, {
@@ -16,5 +16,6 @@ export const loginUser = async (email: string, password: string) => {
 };
 
 export function logoutUser() {
-    localStorage.removeItem("user");
+    //localStorage.removeItem("user");
+    localStorage.clear();
 }  

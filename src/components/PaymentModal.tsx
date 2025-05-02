@@ -18,13 +18,22 @@ export default function PaymentModal({ open, onClose, onSuccess }: {
         setTimeout(() => {
             setProcessing(false);
             setShowStatus(true);
-            onSuccess(); // clear cart, etc.
-        }, 2000); // simulate 2 sec processing
+            //onSuccess(); // clear cart, etc.
+        }, 3000); // simulate 2 sec processing
     };
 
     if (showStatus) {
-        return <PaymentStatus success onRedirect={onClose} />;
+        return (
+            <PaymentStatus
+                success
+                onCountdownEnd={() => {
+                    onSuccess();  // Call after countdown ends
+                    onClose();    // Close modal
+                }}
+            />
+        );
     }
+    
 
     return (
         <Dialog open={open} onClose={onClose} fullWidth>

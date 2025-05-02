@@ -7,7 +7,7 @@ import { useSnackbar } from "notistack";
 
 export default function SignupForm() {
     const [formData, setFormData] = useState({
-        firstName: "", lastName: "", email: "", password: "", phone: "", address: ""
+        firstName: "", lastName: "", email: "", password: "", phone: "", address: "" , role: "customer"
     });
     const navigate = useNavigate();
 
@@ -15,7 +15,6 @@ export default function SignupForm() {
         setFormData({ ...formData, [e.target.name]: e.target.value });
 
     const { enqueueSnackbar } = useSnackbar();
-
     const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const newUser = await registerUser(formData);
@@ -36,18 +35,20 @@ export default function SignupForm() {
                 <Typography variant="h5" mt={2}>Create an Account</Typography>
             </Box>
             <Box component="form" onSubmit={handleSubmit}>
-                {Object.entries(formData).map(([key, value]) => (
-                <TextField
-                    key={key}
-                    fullWidth
-                    margin="normal"
-                    label={key.charAt(0).toUpperCase() + key.slice(1)}
-                    name={key}
-                    type={key === "password" ? "password" : "text"}
-                    value={value}
-                    onChange={handleChange}
-                />
-                ))}
+                {Object.entries(formData)
+                    .filter(([key]) => key !== "role")
+                    .map(([key, value]) => (
+                        <TextField
+                        key={key}
+                        fullWidth
+                        margin="normal"
+                        label={key.charAt(0).toUpperCase() + key.slice(1)}
+                        name={key}
+                        type={key === "password" ? "password" : "text"}
+                        value={value}
+                        onChange={handleChange}
+                        />
+                    ))}
                 <Button type="submit" variant="contained" fullWidth sx={{ mt: 2 }}>Sign Up</Button>
                 <Typography textAlign="center" mt={2}>
                 Already have an account? <Link href="/login">Log in</Link>

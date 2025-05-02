@@ -9,6 +9,7 @@ import LoginForm from "../components/LoginForm";
 import Checkout from "../pages/Checkout";
 import ProtectedRoute from "../components/ProtectedRoute";
 import Track from "../pages/Track";
+import RestaurantMenu from "../pages/RestaurantMenu";
 
 const Routers = () => {
   return (
@@ -25,7 +26,8 @@ const Routers = () => {
         </ProtectedRoute>
       }
       />
-      <Route path="/track" element={<Track />} />
+      <Route path="/track/:orderId" element={<Track />} />
+      <Route path="/restaurant-managing" element={<RestaurantMenu />} />
     </Routes>
   );
 };
