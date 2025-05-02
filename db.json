@@ -1,139 +1,761 @@
-{
-  "users": [
-    {
-      "id": "be8e",
-      "firstName": "Ikemefuna",
-      "lastName": "Onyeka",
-      "email": "ikemonyeka@gmail.com",
-      "password": "123456789",
-      "phone": "123456789",
-      "address": "3100 S Michigan Ave"
-    }
-  ],
+[
+  {
   "orders": [
-    {
-      "id": "f0e4",
-      "date_id": 1744568790936,
-      "items": [
-        {
-          "id": "m1",
-          "title": "Turkey Sub",
-          "image01": "https://i.imgur.com/p04VcTy.jpeg",
-          "price": 8.49,
-          "quantity": 1,
-          "totalPrice": 8.49
-        },
-        {
-          "id": "m3",
-          "title": "Italian B.M.T.",
-          "image01": "https://i.imgur.com/p04VcTy.jpeg",
-          "price": 8.99,
-          "quantity": 1,
-          "totalPrice": 8.99
-        }
-      ],
-      "customerAddress": "3100 S Michigan Ave",
-      "restaurantAddress": "30 S Michigan Ave, Chicago, IL 60603",
-      "restaurantName": "Subway",
-      "total": "21.20",
-      "deliveryStatus": "pending",
-      "driverLocation": null,
-      "createdAt": "2025-04-13T18:26:30.936Z"
-    },
-    {
-      "id": "6fde",
-      "date_id": 1744648541539,
-      "items": [
-        {
-          "id": "m1",
-          "title": "Orange Chicken",
-          "image01": "https://i.imgur.com/KCKkgSk.jpeg",
-          "price": 9.49,
-          "quantity": 1,
-          "totalPrice": 9.49
-        },
-        {
-          "id": "m3",
-          "title": "Beijing Beef",
-          "image01": "https://i.imgur.com/KCKkgSk.jpeg",
-          "price": 8.99,
-          "quantity": 1,
-          "totalPrice": 8.99
-        },
-        {
-          "id": "m6",
-          "title": "Green Tea",
-          "image01": "https://i.imgur.com/KCKkgSk.jpeg",
-          "price": 2.99,
-          "quantity": 1,
-          "totalPrice": 2.99
-        }
-      ],
-      "customerAddress": "3100 S Michigan Ave",
-      "restaurantAddress": "110 S Franklin St, Chicago, IL 60606",
-      "restaurantName": "Panda Express",
-      "total": "26.04",
-      "deliveryStatus": "pending",
-      "driverLocation": null,
-      "createdAt": "2025-04-14T16:35:41.539Z"
-    },
-    {
-      "id": "402a",
-      "date_id": 1744651808820,
-      "items": [
-        {
-          "id": "m1",
-          "title": "Burrito Bowl",
-          "image01": "https://i.imgur.com/5LbQQXh.jpeg",
-          "price": 10.49,
-          "quantity": 1,
-          "totalPrice": 10.49
-        },
-        {
-          "id": "m4",
-          "title": "Steak Tacos",
-          "image01": "https://i.imgur.com/5LbQQXh.jpeg",
-          "price": 10.99,
-          "quantity": 1,
-          "totalPrice": 10.99
-        }
-      ],
-      "customerAddress": "3100 S Michigan Ave",
-      "restaurantAddress": "21 E Adams St, Chicago, IL 60603",
-      "restaurantName": "Chipotle",
-      "total": "26.06",
-      "deliveryStatus": "pending",
-      "driverLocation": "41.873831, -87.695692",
-      "createdAt": "2025-04-14T17:30:08.820Z"
-    },
-    {
-      "id": "c01e",
-      "date_id": 1744662998615,
-      "items": [
-        {
-          "id": "m1",
-          "title": "ShackBurger",
-          "image01": "https://i.imgur.com/rMwOAK2.jpeg",
-          "price": 5.99,
-          "quantity": 1,
-          "totalPrice": 5.99
-        },
-        {
-          "id": "m3",
-          "title": "Chicken Shack",
-          "image01": "https://i.imgur.com/rMwOAK2.jpeg",
-          "price": 7.49,
-          "quantity": 1,
-          "totalPrice": 7.49
-        }
-      ],
-      "customerAddress": "Trump Towers, Chicago",
-      "restaurantAddress": "12 S Michigan Ave, Chicago, IL 60603",
-      "restaurantName": "Shake Shack",
-      "total": "17.16",
-      "deliveryStatus": "pending",
-      "driverLocation": "41.873831, -87.695692",
-      "createdAt": "2025-04-14T20:36:38.615Z"
-    }
-  ]
+  {
+    "id": "95a4",
+    "date_id": 1746195653852,
+    "userID": "be8e",
+    "items": [
+      {
+        "id": "m1",
+        "title": "Gyro Sandwich",
+        "image01": "https://i.imgur.com/j9KyIkH.jpeg",
+        "price": 9.99,
+        "quantity": 1,
+        "totalPrice": 9.99
+      },
+      {
+        "id": "m3",
+        "title": "Falafel Wrap",
+        "image01": "https://i.imgur.com/ckVGx2y.jpeg",
+        "price": 7.99,
+        "quantity": 2,
+        "totalPrice": 7.99
+      }
+    ],
+    "customerAddress": "3100 S Michigan Ave",
+    "restaurantAddress": "47 W Jackson Blvd, Chicago, IL 60604",
+    "restaurantName": "Gyros 47",
+    "total": "33.06",
+    "deliveryStatus": "delivered",
+    "driverLocation": "2798 W Harrison St, Chicago, IL 60612",
+    "createdAt": "2025-05-02T14:20:53.852Z",
+    "tax": 3.97,
+    "deliveryFee": 3.11
+  },
+  {
+    "id": "1fb6",
+    "date_id": 1746198140122,
+    "userID": "be8e",
+    "items": [
+      {
+        "id": "m6",
+        "title": "Milk",
+        "image01": "https://i.imgur.com/1yCDvCG.jpeg",
+        "price": 2.49,
+        "quantity": 1,
+        "totalPrice": 2.49
+      },
+      {
+        "id": "m1",
+        "title": "Chocolate Chip Cookie",
+        "image01": "https://i.imgur.com/GbC9Mim.jpeg",
+        "price": 3.99,
+        "quantity": 1,
+        "totalPrice": 3.99
+      },
+      {
+        "id": "m2",
+        "title": "Snickerdoodle",
+        "image01": "https://i.imgur.com/0D7Rk6C.jpeg",
+        "price": 3.49,
+        "quantity": 1,
+        "totalPrice": 3.49
+      },
+      {
+        "id": "m3",
+        "title": "Peanut Butter Cookie",
+        "image01": "https://i.imgur.com/zjM3WJO.jpeg",
+        "price": 3.99,
+        "quantity": 2,
+        "totalPrice": 3.99
+      }
+    ],
+    "customerAddress": "3100 S Michigan Ave",
+    "restaurantAddress": "22 S Wabash Ave, Chicago, IL 60603",
+    "restaurantName": "Crumbl",
+    "total": "22.85",
+    "deliveryStatus": "delivered",
+    "driverLocation": "2798 W Harrison St, Chicago, IL 60612",
+    "createdAt": "2025-05-02T15:02:20.122Z",
+    "tax": "2.75",
+    "deliveryFee": "2.15"
+  },
+  {
+    "id": "7561",
+    "date_id": 1746198140125,
+    "userID": "be8e",
+    "items": [
+      {
+        "id": "m6",
+        "title": "Milk",
+        "image01": "https://i.imgur.com/1yCDvCG.jpeg",
+        "price": 2.49,
+        "quantity": 1,
+        "totalPrice": 2.49
+      },
+      {
+        "id": "m1",
+        "title": "Chocolate Chip Cookie",
+        "image01": "https://i.imgur.com/GbC9Mim.jpeg",
+        "price": 3.99,
+        "quantity": 1,
+        "totalPrice": 3.99
+      },
+      {
+        "id": "m2",
+        "title": "Snickerdoodle",
+        "image01": "https://i.imgur.com/0D7Rk6C.jpeg",
+        "price": 3.49,
+        "quantity": 1,
+        "totalPrice": 3.49
+      },
+      {
+        "id": "m3",
+        "title": "Peanut Butter Cookie",
+        "image01": "https://i.imgur.com/zjM3WJO.jpeg",
+        "price": 3.99,
+        "quantity": 2,
+        "totalPrice": 3.99
+      }
+    ],
+    "customerAddress": "3100 S Michigan Ave",
+    "restaurantAddress": "22 S Wabash Ave, Chicago, IL 60603",
+    "restaurantName": "Crumbl",
+    "total": "22.85",
+    "deliveryStatus": "pending",
+    "driverLocation": "2798 W Harrison St, Chicago, IL 60612",
+    "createdAt": "2025-05-02T15:02:20.125Z",
+    "tax": "2.75",
+    "deliveryFee": "2.15"
+  },
+  {
+    "id": "187c",
+    "date_id": 1746202001861,
+    "userID": "be8e",
+    "items": [
+      {
+        "id": "m1",
+        "title": "Cheeseburger",
+        "image01": "https://i.imgur.com/40JmajZ.jpeg",
+        "price": 10.99,
+        "quantity": 2,
+        "totalPrice": 10.99
+      },
+      {
+        "id": "m2",
+        "title": "Cajun Fries",
+        "image01": "https://i.imgur.com/c8ahgXo.jpeg",
+        "price": 3.99,
+        "quantity": 1,
+        "totalPrice": 3.99
+      },
+      {
+        "id": "m6",
+        "title": "Bottled Water",
+        "image01": "https://i.imgur.com/8RIPVLE.jpeg",
+        "price": 1.99,
+        "quantity": 1,
+        "totalPrice": 1.99
+      }
+    ],
+    "customerAddress": "3100 S Michigan Ave",
+    "restaurantAddress": "30 E Adams St, Chicago, IL 60603",
+    "restaurantName": "Five Guys",
+    "total": "35.59",
+    "deliveryStatus": "pending",
+    "driverLocation": "2798 W Harrison St, Chicago, IL 60612",
+    "createdAt": "2025-05-02T16:06:41.861Z",
+    "tax": "4.28",
+    "deliveryFee": "3.36"
+  },
+  {
+    "id": "4268",
+    "date_id": 1746202001864,
+    "userID": "be8e",
+    "items": [
+      {
+        "id": "m1",
+        "title": "Cheeseburger",
+        "image01": "https://i.imgur.com/40JmajZ.jpeg",
+        "price": 10.99,
+        "quantity": 2,
+        "totalPrice": 10.99
+      },
+      {
+        "id": "m2",
+        "title": "Cajun Fries",
+        "image01": "https://i.imgur.com/c8ahgXo.jpeg",
+        "price": 3.99,
+        "quantity": 1,
+        "totalPrice": 3.99
+      },
+      {
+        "id": "m6",
+        "title": "Bottled Water",
+        "image01": "https://i.imgur.com/8RIPVLE.jpeg",
+        "price": 1.99,
+        "quantity": 1,
+        "totalPrice": 1.99
+      }
+    ],
+    "customerAddress": "3100 S Michigan Ave",
+    "restaurantAddress": "30 E Adams St, Chicago, IL 60603",
+    "restaurantName": "Five Guys",
+    "total": "35.59",
+    "deliveryStatus": "pending",
+    "driverLocation": "2798 W Harrison St, Chicago, IL 60612",
+    "createdAt": "2025-05-02T16:06:41.864Z",
+    "tax": "4.28",
+    "deliveryFee": "3.36"
+  },
+  {
+    "id": "cede",
+    "date_id": 1746202235961,
+    "userID": "be8e",
+    "items": [
+      {
+        "id": "m1",
+        "title": "Huli Huli Chicken",
+        "image01": "https://i.imgur.com/4u1HKr2.jpeg",
+        "price": 11.99,
+        "quantity": 1,
+        "totalPrice": 11.99
+      },
+      {
+        "id": "m3",
+        "title": "Kalua Pork",
+        "image01": "https://i.imgur.com/fC21xz1.jpeg",
+        "price": 10.99,
+        "quantity": 1,
+        "totalPrice": 10.99
+      }
+    ],
+    "customerAddress": "3100 S Michigan Ave",
+    "restaurantAddress": "24 E Jackson Blvd, Chicago, IL 60604",
+    "restaurantName": "Hawaiian Bros",
+    "total": "29.25",
+    "deliveryStatus": "pending",
+    "driverLocation": "2798 W Harrison St, Chicago, IL 60612",
+    "createdAt": "2025-05-02T16:10:35.961Z",
+    "tax": "3.52",
+    "deliveryFee": "2.76"
+  },
+  {
+    "id": "7714",
+    "date_id": 1746202235961,
+    "userID": "be8e",
+    "items": [
+      {
+        "id": "m1",
+        "title": "Huli Huli Chicken",
+        "image01": "https://i.imgur.com/4u1HKr2.jpeg",
+        "price": 11.99,
+        "quantity": 1,
+        "totalPrice": 11.99
+      },
+      {
+        "id": "m3",
+        "title": "Kalua Pork",
+        "image01": "https://i.imgur.com/fC21xz1.jpeg",
+        "price": 10.99,
+        "quantity": 1,
+        "totalPrice": 10.99
+      }
+    ],
+    "customerAddress": "3100 S Michigan Ave",
+    "restaurantAddress": "24 E Jackson Blvd, Chicago, IL 60604",
+    "restaurantName": "Hawaiian Bros",
+    "total": "29.25",
+    "deliveryStatus": "pending",
+    "driverLocation": "2798 W Harrison St, Chicago, IL 60612",
+    "createdAt": "2025-05-02T16:10:35.961Z",
+    "tax": "3.52",
+    "deliveryFee": "2.76"
+  }
+]},
+{
+"restaurants": [
+  {
+    "id": "1",
+    "name": "Gyros 47",
+    "image": "https://i.imgur.com/vCGlaRF.jpeg",
+    "address": "47 W Jackson Blvd, Chicago, IL 60604",
+    "deliveryFee": 1.99,
+    "rating": 4.2,
+    "reviews": "1,000+",
+    "eta": "15 min",
+    "promo": null,
+    "res_id": "10",
+    "menu": [
+      {
+        "id": "m1",
+        "name": "Gyro Sandwich",
+        "price": 9.99,
+        "description": "Delicious lamb with pita.",
+        "category": "Main Dishes",
+        "image": "https://i.imgur.com/j9KyIkH.jpeg"
+      },
+      {
+        "id": "m2",
+        "name": "Greek Fries",
+        "price": 3.49,
+        "description": "Fries topped with feta and herbs.",
+        "category": "Sides",
+        "image": "https://i.imgur.com/ykEFQK0.jpeg"
+      },
+      {
+        "id": "m3",
+        "name": "Falafel Wrap",
+        "price": 7.99,
+        "description": "Crispy falafel in a pita wrap.",
+        "category": "Main Dishes",
+        "image": "https://i.imgur.com/ckVGx2y.jpeg"
+      },
+      {
+        "id": "m4",
+        "name": "Greek Salad",
+        "price": 6.99,
+        "description": "Feta, olives, cucumbers, and more.",
+        "category": "Sides",
+        "image": "https://i.imgur.com/8GGs8ye.jpeg"
+      },
+      {
+        "id": "m5",
+        "name": "Baklava",
+        "price": 4.49,
+        "description": "Sweet pastry with nuts and honey.",
+        "category": "Desserts",
+        "image": "https://i.imgur.com/FNRIt7O.jpeg"
+      },
+      {
+        "id": "m6",
+        "name": "Iced Frappe",
+        "price": 3.99,
+        "description": "Greek-style iced coffee.",
+        "category": "Drinks",
+        "image": "https://i.imgur.com/9ndG6yC.jpeg"
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "name": "Hawaiian Bros",
+    "image": "https://i.imgur.com/hNZyM4y.jpeg",
+    "address": "24 E Jackson Blvd, Chicago, IL 60604",
+    "deliveryFee": 1.99,
+    "rating": 4.6,
+    "reviews": "10,000+",
+    "eta": "30 min",
+    "promo": "Buy 1, Get 1 Free",
+    "res_id": "11",
+    "menu": [
+      {
+        "id": "m1",
+        "name": "Huli Huli Chicken",
+        "price": 11.99,
+        "description": "Grilled chicken in sweet pineapple glaze.",
+        "category": "Main Dishes",
+        "image": "https://i.imgur.com/4u1HKr2.jpeg"
+      },
+      {
+        "id": "m2",
+        "name": "Spam Musubi",
+        "price": 4.99,
+        "description": "Hawaiian-style spam sushi roll.",
+        "category": "Sides",
+        "image": "https://i.imgur.com/FgFd7fS.jpeg"
+      },
+      {
+        "id": "m3",
+        "name": "Kalua Pork",
+        "price": 10.99,
+        "description": "Slow-roasted pork with cabbage.",
+        "category": "Main Dishes",
+        "image": "https://i.imgur.com/fC21xz1.jpeg"
+      },
+      {
+        "id": "m4",
+        "name": "Macaroni Salad",
+        "price": 3.49,
+        "description": "Creamy island-style mac salad.",
+        "category": "Sides",
+        "image": "https://i.imgur.com/SDgenZe.jpeg"
+      },
+      {
+        "id": "m5",
+        "name": "Loco Moco",
+        "price": 9.99,
+        "description": "Burger patty, rice, egg, and gravy.",
+        "category": "Main Dishes",
+        "image": "https://i.imgur.com/tYqkpE8.jpeg"
+      },
+      {
+        "id": "m6",
+        "name": "Pineapple Juice",
+        "price": 2.99,
+        "description": "Fresh chilled pineapple juice.",
+        "category": "Drinks",
+        "image": "https://i.imgur.com/g9j9aOm.jpeg"
+      }
+    ]
+  },
+  {
+    "id": "3",
+    "name": "Crumbl",
+    "image": "https://i.imgur.com/5yR7Kdp.jpeg",
+    "address": "22 S Wabash Ave, Chicago, IL 60603",
+    "deliveryFee": 3.99,
+    "rating": 4.4,
+    "reviews": "1,500+",
+    "eta": "25 min",
+    "promo": null,
+    "res_id": "12",
+    "menu": [
+      {
+        "id": "m1",
+        "name": "Chocolate Chip Cookie",
+        "price": 3.99,
+        "description": "Warm gooey chocolate chip goodness.",
+        "category": "Desserts",
+        "image": "https://i.imgur.com/GbC9Mim.jpeg"
+      },
+      {
+        "id": "m2",
+        "name": "Snickerdoodle",
+        "price": 3.49,
+        "description": "Cinnamon sugar perfection.",
+        "category": "Desserts",
+        "image": "https://i.imgur.com/0D7Rk6C.jpeg"
+      },
+      {
+        "id": "m3",
+        "name": "Peanut Butter Cookie",
+        "price": 3.99,
+        "description": "Rich peanut butter flavor.",
+        "category": "Desserts",
+        "image": "https://i.imgur.com/zjM3WJO.jpeg"
+      },
+      {
+        "id": "m4",
+        "name": "Sugar Cookie",
+        "price": 3.49,
+        "description": "Classic soft sugar cookie.",
+        "category": "Desserts",
+        "image": "https://i.imgur.com/sII8PrU.jpeg"
+      },
+      {
+        "id": "m5",
+        "name": "Oreo Crumble",
+        "price": 4.29,
+        "description": "Cookie with crushed Oreos on top.",
+        "category": "Desserts",
+        "image": "https://i.imgur.com/UD1Uony.jpeg"
+      },
+      {
+        "id": "m6",
+        "name": "Milk",
+        "price": 2.49,
+        "description": "Cold glass of milk for dipping cookies.",
+        "category": "Drinks",
+        "image": "https://i.imgur.com/1yCDvCG.jpeg"
+      }
+    ]
+  },
+  {
+    "id": "4",
+    "name": "Subway",
+    "image": "https://i.imgur.com/p04VcTy.jpeg",
+    "address": "30 S Michigan Ave, Chicago, IL 60603",
+    "deliveryFee": 2.49,
+    "rating": 4.3,
+    "reviews": "700+",
+    "eta": "10 min",
+    "promo": "Limited Time Only",
+    "res_id": "14",
+    "menu": [
+      {
+        "id": "m1",
+        "name": "Turkey Sub",
+        "price": 8.49,
+        "description": "Classic turkey with veggies and sauce.",
+        "category": "Main Dishes",
+        "image": "https://i.imgur.com/AP8qI2P.jpeg"
+      },
+      {
+        "id": "m2",
+        "name": "Veggie Delight",
+        "price": 7.49,
+        "description": "Fresh veggies on your choice of bread.",
+        "category": "Main Dishes",
+        "image": "https://i.imgur.com/vwxzrOb.jpeg"
+      },
+      {
+        "id": "m3",
+        "name": "Italian B.M.T.",
+        "price": 8.99,
+        "description": "Meats, cheese, and Italian zest.",
+        "category": "Main Dishes",
+        "image": "https://i.imgur.com/9ZeziMG.jpeg"
+      },
+      {
+        "id": "m4",
+        "name": "Chicken Teriyaki",
+        "price": 9.49,
+        "description": "Savory-sweet grilled chicken.",
+        "category": "Main Dishes",
+        "image": "https://i.imgur.com/0xdfz1x.jpeg"
+      },
+      {
+        "id": "m5",
+        "name": "Tuna Sub",
+        "price": 8.29,
+        "description": "Creamy tuna salad sandwich.",
+        "category": "Main Dishes",
+        "image": "https://i.imgur.com/zOKzTgR.jpeg"
+      },
+      {
+        "id": "m6",
+        "name": "Fountain Drink",
+        "price": 2.49,
+        "description": "Coca-Cola, Sprite or your choice of soda.",
+        "category": "Drinks",
+        "image": "https://i.imgur.com/zpgLk1n.jpeg"
+      }
+    ]
+  },
+  {
+    "id": "5",
+    "name": "Panda Express",
+    "image": "https://i.imgur.com/KCKkgSk.jpeg",
+    "address": "110 S Franklin St, Chicago, IL 60606",
+    "deliveryFee": 2.99,
+    "rating": 4.1,
+    "reviews": "3,200+",
+    "eta": "20 min",
+    "promo": "Free Delivery on $15+",
+    "res_id": "18",
+    "menu": [
+      {
+        "id": "m1",
+        "name": "Orange Chicken",
+        "price": 9.49,
+        "description": "Sweet and tangy chicken favorite.",
+        "category": "Main Dishes",
+        "image": "https://i.imgur.com/KNpy47q.jpeg"
+      },
+      {
+        "id": "m2",
+        "name": "Chow Mein",
+        "price": 4.99,
+        "description": "Stir-fried noodles with veggies.",
+        "category": "Sides",
+        "image": "https://i.imgur.com/PX9TN0v.jpeg"
+      },
+      {
+        "id": "m3",
+        "name": "Beijing Beef",
+        "price": 8.99,
+        "description": "Spicy crispy beef dish.",
+        "category": "Main Dishes",
+        "image": "https://i.imgur.com/M96acW7.jpeg"
+      },
+      {
+        "id": "m4",
+        "name": "Fried Rice",
+        "price": 4.49,
+        "description": "Egg-fried rice with peas and carrots.",
+        "category": "Sides",
+        "image": "https://i.imgur.com/2w7pcpI.jpeg"
+      },
+      {
+        "id": "m5",
+        "name": "Spring Rolls",
+        "price": 3.99,
+        "description": "Crispy vegetarian rolls.",
+        "category": "Sides",
+        "image": "https://i.imgur.com/W5k8gEh.png"
+      },
+      {
+        "id": "m6",
+        "name": "Passion Mango",
+        "price": 2.99,
+        "description": "iced passion mango black tea.",
+        "category": "Drinks",
+        "image": "https://i.imgur.com/03LIXa0.jpeg"
+      }
+    ]
+  },
+  {
+    "id": "6",
+    "name": "Chipotle",
+    "image": "https://i.imgur.com/5LbQQXh.jpeg",
+    "address": "21 E Adams St, Chicago, IL 60603",
+    "deliveryFee": 1.49,
+    "rating": 4.5,
+    "reviews": "5,000+",
+    "eta": "15 min",
+    "promo": null,
+    "res_id": "20",
+    "menu": [
+      {
+        "id": "m1",
+        "name": "Burrito Bowl",
+        "price": 10.49,
+        "description": "Build-your-own bowl with all the fixings.",
+        "category": "Main Dishes",
+        "image": "https://i.imgur.com/wIt2OOX.jpeg"
+      },
+      {
+        "id": "m2",
+        "name": "Chips and Guac",
+        "price": 4.49,
+        "description": "Crispy chips with fresh guacamole.",
+        "category": "Sides",
+        "image": "https://i.imgur.com/IRhXV0M.jpeg"
+      },
+      {
+        "id": "m3",
+        "name": "Chicken Burrito",
+        "price": 9.99,
+        "description": "Stuffed with rice, beans, and chicken.",
+        "category": "Main Dishes",
+        "image": "https://i.imgur.com/BDiSAOI.png"
+      },
+      {
+        "id": "m4",
+        "name": "Steak Tacos",
+        "price": 10.99,
+        "description": "Three steak tacos with toppings.",
+        "category": "Main Dishes",
+        "image": "https://i.imgur.com/j0aYjGS.jpeg"
+      },
+      {
+        "id": "m5",
+        "name": "Quesadilla",
+        "price": 8.99,
+        "description": "Melted cheese and your choice of meat.",
+        "category": "Main Dishes",
+        "image": "https://i.imgur.com/xp09xP4.jpeg"
+      },
+      {
+        "id": "m6",
+        "name": "Agua Fresca",
+        "price": 3.49,
+        "description": "Freshly made fruit drink.",
+        "category": "Drinks",
+        "image": "https://i.imgur.com/4vOecrv.jpeg"
+      }
+    ]
+  },
+  {
+    "id": "7",
+    "name": "Five Guys",
+    "image": "https://i.imgur.com/OXLMqiW.jpeg",
+    "address": "30 E Adams St, Chicago, IL 60603",
+    "deliveryFee": 3.49,
+    "rating": 4.7,
+    "reviews": "2,800+",
+    "eta": "25 min",
+    "promo": null,
+    "res_id": "145c",
+    "menu": [
+      {
+        "id": "m1",
+        "name": "Cheeseburger",
+        "price": 10.99,
+        "description": "Classic cheeseburger with toppings of your choice.",
+        "category": "Main Dishes",
+        "image": "https://i.imgur.com/40JmajZ.jpeg"
+      },
+      {
+        "id": "m2",
+        "name": "Cajun Fries",
+        "price": 3.99,
+        "description": "Spicy seasoned fries.",
+        "category": "Sides",
+        "image": "https://i.imgur.com/c8ahgXo.jpeg"
+      },
+      {
+        "id": "m3",
+        "name": "Bacon Burger",
+        "price": 11.49,
+        "description": "Beefy goodness with crispy bacon.",
+        "category": "Main Dishes",
+        "image": "https://i.imgur.com/4j9zkNc.jpeg"
+      },
+      {
+        "id": "m4",
+        "name": "Hot Dog",
+        "price": 5.49,
+        "description": "Grilled hot dog with toppings.",
+        "category": "Main Dishes",
+        "image": "https://i.imgur.com/Xz5HyiW.jpeg"
+      },
+      {
+        "id": "m5",
+        "name": "Milkshake",
+        "price": 4.99,
+        "description": "Hand-spun thick milkshake.",
+        "category": "Desserts",
+        "image": "https://i.imgur.com/YaEM2La.jpeg"
+      },
+      {
+        "id": "m6",
+        "name": "Bottled Water",
+        "price": 1.99,
+        "description": "Chilled bottled water.",
+        "category": "Drinks",
+        "image": "https://i.imgur.com/8RIPVLE.jpeg"
+      }
+    ]
+  },
+  {
+    "id": "8",
+    "name": "Shake Shack",
+    "image": "https://i.imgur.com/rMwOAK2.jpeg",
+    "address": "12 S Michigan Ave, Chicago, IL 60603",
+    "deliveryFee": 3.49,
+    "rating": 4.6,
+    "reviews": "6,000+",
+    "eta": "30 min",
+    "promo": "Free Fries with $20+ order",
+    "res_id": "490c",
+    "menu": [
+      {
+        "id": "m1",
+        "name": "ShackBurger",
+        "price": 5.99,
+        "description": "Beef patty with cheese, lettuce, and tomato.",
+        "category": "Main Dishes",
+        "image": "https://i.imgur.com/BZ2G2ms.jpeg"
+      },
+      {
+        "id": "m2",
+        "name": "Crinkle-Cut Fries",
+        "price": 3.99,
+        "description": "Golden, crispy fries.",
+        "category": "Sides",
+        "image": "https://i.imgur.com/TRWKgNq.jpeg"
+      },
+      {
+        "id": "m3",
+        "name": "Chicken Shack",
+        "price": 7.49,
+        "description": "Crispy chicken sandwich.",
+        "category": "Main Dishes",
+        "image": "https://i.imgur.com/ungCexE.jpeg"
+      },
+      {
+        "id": "m4",
+        "name": "Cheese Fries",
+        "price": 4.49,
+        "description": "Crispy fries with creamy cheese sauce.",
+        "category": "Sides",
+        "image": "https://i.imgur.com/Z3kn57a.jpeg"
+      }
+    ]
+  }
+]
 }
+]

@@ -122,7 +122,7 @@ class OrderAgent(Runnable):
         return state
 
     def extract_order_id(self, message: str) -> str | None:
-        match = re.search(r"\b\d{5}\b", message)
+        match = re.search(r"\b\d{13}\b", message)
         print("Match ------ ",match)
         return match.group(0) if match else None
     
@@ -155,9 +155,9 @@ class ImageAnalyzerAgent(Runnable):
                 {
                     "role": "system",
                     "content": (
-                        "You are SwiftBot analyzing a customer's food image. "
-                        "If the food appears damaged, reply: 'Refund'. "
-                        "If the food looks okay, reply: 'No Refund'."
+                        "You are SwiftBot a customer support agent analyzing a customer's food image. "
+                        "If the food appears damaged, eaten or the portion is smaller than expected then approve the refund and provide a reason for approval . "
+                        "If the food looks okay, then dont approve refund and provide proper reason for it."
                     )
                 },
                 {
@@ -174,16 +174,39 @@ class ImageAnalyzerAgent(Runnable):
         )
 
         decision = response.choices[0].message.content.strip()
-        state["refund_decision"] = decision
+        state["refund_status"] = decision
         return state
 
 class RefundRouterAgent(Runnable):
     def invoke(self, state: dict, config: Optional[dict] = None) -> str:
-        decision = state.get("refund_decision", "").lower()
+        decision = state.get("refund_status", "").lower()
         print(f"[RefundRouter] Decision from vision: {decision}")
-        if decision == "refund":
+        response = client.chat.completions.create(
+            model="gpt-4o",
+            messages=[
+                {
+                    "role": "system",
+                    "content": (
+                        "You are SwiftBot a customer support agent analyzing the decision of analysed food image of customer's food. "
+                        "If the decision is of refund, then reply only: 'refund' . "
+                        "If the decision dosent approve refund then reply only: 'no_refund'."
+                    )
+                },
+                {
+                    "role": "user",
+                    "content": decision
+                }
+            ],
+            max_tokens=200
+        )
+
+        decision_final = response.choices[0].message.content.strip()
+        print("[RefundRouterAgent] Final decision------ ", decision_final)
+        if decision_final == "refund":
+            state['refund_decision'] = "refund"
             state["refund_route"] = "refund_agent"
         else:
+            state['refund_decision'] = "no_refund"
             state["refund_route"] = "end"
         
         print("refund_route ---- ",state["refund_route"])
@@ -193,13 +216,14 @@ class RefundRouterAgent(Runnable):
 class RefundAgent(Runnable):
     def invoke(self, state: dict, config: Optional[dict] = None) -> dict:
         reason = state.get("refund_reason", "No reason provided")
+        decision = state.get("refund_decision", "").lower()
         image_uploaded = "uploaded_image_path" in state
         prompt = (
             f"The customer has requested a refund for order ID `{state.get('order_id', 'unknown')}`. "
             f"The reason given is: \"{reason}\". "
             f"The image of the food was successfully uploaded and analyzed. "
-            f"Based on this, the refund has been approved. "
-            "Kindly inform the user that the refund is being processed successfully. "
+            f"Based on this analysis: {decision}, the refund has been approved. "
+            "Kindly inform the user that the refund is being processed successfully and also include the reason from analysis. "
             "Be friendly, and reply in Markdown with emojis and next steps."
         )
         reply = generate_reply(state, prompt)
@@ -226,10 +250,11 @@ class RefundPrecheckAgent(Runnable):
         for msg in history:
             text = msg.get("text") or msg.get("content", "")
             if not extracted_order_id:
-                match = re.search(r"\b\d{5}\b", text)
+                match = re.search(r"\b\d{13}\b", text)
                 if match:
                     extracted_order_id = match.group(0)
-
+        for msg in user_input:
+            text = msg
             if not extracted_reason:
                 if any(word in text.lower() for word in ["damaged", "cold", "spoiled", "wrong", "missing", "late"]):
                     extracted_reason = text
@@ -237,19 +262,49 @@ class RefundPrecheckAgent(Runnable):
         # Update state if found
         if extracted_order_id:
             print(f"[RefundPrecheckAgent] Found order ID: {extracted_order_id}")
-            state["order_id"] = extracted_order_id
+            status = get_order_status(extracted_order_id)
+            print("[RefundprecheckAgent] status ----- ", status)
+            if status:
+                if status == "delivered":
+                    state["order_id"] = extracted_order_id
+
+                else:
+                    system_prompt = (
+                    "You are SwiftBot, an AI support assistant for SwiftBite. "
+                    f"The user's order status is: {status}"
+                    "Politely let them know that refund request cannot b raised due to the above order status and suggest contacting support. "
+                    "Respond in Markdown."
+                    )
+                    reply = generate_reply(state, system_prompt)
+
+                    state["chat_response"] = reply
+                    state["history"] += [{"role": "assistant", "content": reply}]
+                    return state
+                    
+            else:
+                system_prompt = (
+                "You are SwiftBot, an AI support assistant for SwiftBite. "
+                f"The user has given invalid order id: {extracted_order_id}"
+                "Politely let them know that order id entered is not present and suggest contacting support. "
+                "Respond in Markdown."
+                )
+                reply = generate_reply(state, system_prompt)
+
+                state["chat_response"] = reply
+                state["history"] += [{"role": "assistant", "content": reply}]
+                return state
+                
 
         if extracted_reason:
             print(f"[RefundPrecheckAgent] Found reason: {extracted_reason}")
             state["refund_reason"] = extracted_reason        
         # Try extracting order ID from message
- 
+
         
         print("[RefundPrecheck] order id ----- ",state.get("order_id"))
 
         # Try extracting refund reason from user message
-        if "refund" in user_input.lower() and not state.get("refund_reason"):
-            state["refund_reason"] = user_input
+
 
         # Check if user has exceeded turns
         if state["refund_turns"] >= 5:
@@ -273,6 +328,8 @@ class RefundPrecheckAgent(Runnable):
                 missing_parts.append("order ID")
             if not state.get("refund_reason"):
                 missing_parts.append("refund reason")
+            if not state.get("uploaded_image_path"):
+                missing_parts.append("image")
 
             system_prompt = (
                 f"You are SwiftBot, an AI assistant for SwiftBite. The user is requesting a refund. "
