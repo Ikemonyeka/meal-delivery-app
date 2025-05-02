@@ -3,6 +3,9 @@ import { Container, Row, Col, Card, CardBody, CardTitle, CardText } from "reacts
 
 import { Link } from "react-router-dom";
 
+import SwiftBot from "../components/ChatBot";
+
+
 import guyImg from "../assets/images/delivery-img.png";
 import fastDeliveryIcon from "../assets/images/fast-delivery-guy.png"; // Add your icon image path
 import satisfactionIcon from "../assets/images/satisfaction-img.png"; // Add your icon image path
@@ -77,6 +80,7 @@ const Home = () => {
             </Row>
             </Container>
         </section>
+        <SwiftBot/>
         </div>
     );
 };

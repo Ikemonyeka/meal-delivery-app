@@ -5,6 +5,7 @@
   color: white;
   text-align: start;
   margin-top: 200px; /* Space for the arc to be visible */
+  z-index: 10;
 }
 
 /* Arc at the top of the footer */
