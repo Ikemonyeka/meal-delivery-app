@@ -15,9 +15,16 @@ export default function LoginForm() {
         e.preventDefault();
         const user = await loginUser(email, password);
         if (user) {
-            localStorage.setItem("user", JSON.stringify(user));
-            enqueueSnackbar(`Welcome back, ${user.firstName}`, { variant: "success" });
-            navigate("/home");
+            if(user.role === "customer"){
+                enqueueSnackbar(`Welcome back, ${user.firstName}`, { variant: "success" });
+                localStorage.setItem("user", JSON.stringify(user));
+                navigate("/home");
+            }
+            if(user.role === "restaurant"){
+                enqueueSnackbar(`Welcome back, ${user.firstName} ${user.lastName}`, { variant: "success" });
+                localStorage.setItem("res_id", JSON.stringify(user));
+                navigate("/restaurant-managing");
+            }
         } else {
             enqueueSnackbar("Invalid credentials", { variant: "error" });
         }

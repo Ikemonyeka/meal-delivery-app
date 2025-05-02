@@ -25,12 +25,18 @@ const restaurantAddress =
     ? JSON.parse(localStorage.getItem("restaurantAddress"))
     : "";
 
-const setItemFunc = (item, totalAmount, totalQuantity, restaurant, restaurantAddress) => {
+const restaurantEmail =
+  localStorage.getItem("restaurantEmail") !== null
+    ? JSON.parse(localStorage.getItem("restaurantEmail"))
+    : "";
+
+const setItemFunc = (item, totalAmount, totalQuantity, restaurant, restaurantAddress, restaurantEmail) => {
   localStorage.setItem("cartItems", JSON.stringify(item));
   localStorage.setItem("totalAmount", JSON.stringify(totalAmount));
   localStorage.setItem("totalQuantity", JSON.stringify(totalQuantity));
   localStorage.setItem("cartRestaurant", JSON.stringify(restaurant));
   localStorage.setItem("restaurantAddress", JSON.stringify(restaurantAddress));
+  localStorage.setItem("restaurantEmail", JSON.stringify(restaurantEmail));
 };
 
 const initialState = {
@@ -39,6 +45,7 @@ const initialState = {
   totalAmount: totalAmount,
   restaurant: restaurant,
   restaurantAddress: restaurantAddress,
+  restaurantEmail: restaurantEmail
 };
 
 const cartSlice = createSlice({
@@ -51,7 +58,8 @@ const cartSlice = createSlice({
       const newItem = action.payload;
       const restaurantName = newItem.restaurantName || state.restaurant;
       const restaurantAdd = newItem.restaurantAddress || state.restaurantAddress;
-    
+      const restaurantEmail = newItem.restaurantEmail || state.restaurantEmail;
+
       // If cart is not empty and restaurant doesn't match
       if (state.cartItems.length > 0 && state.restaurant !== restaurantName) {
         // Clear the cart and reset with this item (you could prompt user instead)
@@ -107,12 +115,14 @@ const cartSlice = createSlice({
       // Set restaurant
       state.restaurant = restaurantName;
       state.restaurantAddress = restaurantAdd;
+      state.restaurantEmail = restaurantEmail;
       setItemFunc(
         state.cartItems,
         state.totalAmount,
         state.totalQuantity,
         state.restaurant,
-        state.restaurantAddress
+        state.restaurantAddress,
+        state.restaurantEmail
       );
     },
     
@@ -151,7 +161,8 @@ const cartSlice = createSlice({
         state.totalAmount,
         state.totalQuantity,
         state.restaurant,
-        state.restaurantAddress
+        state.restaurantAddress,
+        state.restaurantEmail
       );
     },
 
@@ -186,7 +197,8 @@ const cartSlice = createSlice({
         state.totalAmount,
         state.totalQuantity,
         state.restaurant,
-        state.restaurantAddress
+        state.restaurantAddress,
+        state.restaurantEmail
       );
     },
     clearCart(state) {
@@ -200,6 +212,7 @@ const cartSlice = createSlice({
       localStorage.removeItem("totalQuantity");
       localStorage.removeItem("cartRestaurant");
       localStorage.removeItem("restaurantAddress");
+      localStorage.removeItem("restaurantEmail");
     },    
   },
 });

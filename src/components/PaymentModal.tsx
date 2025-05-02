@@ -4,6 +4,7 @@ import {
     Button, CircularProgress, Typography, TextField, Box
 } from "@mui/material";
 import PaymentStatus from "../components/PaymentStatus";
+import DriverSearchModal from "../components/DriverSearchModal"; // NEW
 
 export default function PaymentModal({ open, onClose, onSuccess }: {
     open: boolean;
@@ -11,19 +12,38 @@ export default function PaymentModal({ open, onClose, onSuccess }: {
     onSuccess: () => void;
 }) {
     const [processing, setProcessing] = useState(false);
+    const [showDriverSearch, setShowDriverSearch] = useState(false);
     const [showStatus, setShowStatus] = useState(false);
 
     const handlePay = () => {
         setProcessing(true);
         setTimeout(() => {
             setProcessing(false);
-            setShowStatus(true);
-            onSuccess(); // clear cart, etc.
-        }, 2000); // simulate 2 sec processing
+            setShowDriverSearch(true); // Show driver search modal after payment
+        }, 3000); // simulate 3 sec processing
     };
 
+    if (showDriverSearch) {
+        return (
+            <DriverSearchModal
+                onComplete={() => {
+                    setShowDriverSearch(false);
+                    setShowStatus(true); // Now show redirect modal
+                }}
+            />
+        );
+    }
+
     if (showStatus) {
-        return <PaymentStatus success onRedirect={onClose} />;
+        return (
+            <PaymentStatus
+                success
+                onCountdownEnd={() => {
+                    onSuccess();  // Place order and navigate
+                    onClose();    // Close modal
+                }}
+            />
+        );
     }
 
     return (
