@@ -38,7 +38,7 @@ async def image_endpoint(file: UploadFile = File(...), history: str = Form(...))
     }
 
     # ✅ Call with a custom entry point for image uploads
-    result = chat_graph.invoke(contextual_state, config={"entry_point": "image_agent"})
+    result = chat_graph.invoke(contextual_state)
 
     reply = result.get("refund_status") or result.get("chat_response") or " Sorry, I couldn't understand."
     return {"refund_status": reply, "updatedState": result}
